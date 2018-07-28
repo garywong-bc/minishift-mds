@@ -3,7 +3,7 @@ app {
     name = 'sonarqube'
     namespaces { //can't call environments :(
         'build'{
-            namespace = 'empr-mds-tools'
+            namespace = 'minishift-mds-tools'
             disposable = true
         }
         'dev' {
