@@ -97,6 +97,12 @@
       "spec": {
           "triggers": [
               {
+                "type": "GitHub",
+                "github": {
+                    "secret": "AcdfHAyzbUuM"
+                }                
+              },
+              {
                   "type": "ConfigChange"
               },
               {
