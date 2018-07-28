@@ -13,7 +13,7 @@
             "kind": "RoleBinding",
             "metadata": {
                 "name": "jenkins_edit",
-                "namespace": "empr-mds-dev"
+                "namespace": "minishift-mds-dev"
             },
             "roleRef": {
                 "name": "edit"
@@ -22,7 +22,7 @@
                 {
                     "kind": "ServiceAccount",
                     "name": "jenkins",
-                    "namespace": "empr-mds-tools"
+                    "namespace": "minishift-mds-tools"
                 }
             ]
         },{
@@ -31,7 +31,7 @@
             "kind": "RoleBinding",
             "metadata": {
                 "name": "jenkins_edit",
-                "namespace": "empr-mds-test"
+                "namespace": "minishift-mds-test"
             },
             "roleRef": {
                 "name": "edit"
@@ -40,7 +40,7 @@
                 {
                     "kind": "ServiceAccount",
                     "name": "jenkins",
-                    "namespace": "empr-mds-tools"
+                    "namespace": "minishift-mds-tools"
                 }
             ]
         },{
@@ -49,7 +49,7 @@
             "kind": "RoleBinding",
             "metadata": {
                 "name": "jenkins_edit",
-                "namespace": "empr-mds-prod"
+                "namespace": "minishift-mds-prod"
             },
             "roleRef": {
                 "name": "edit"
@@ -58,7 +58,7 @@
                 {
                     "kind": "ServiceAccount",
                     "name": "jenkins",
-                    "namespace": "empr-mds-tools"
+                    "namespace": "minishift-mds-tools"
                 }
             ]
         }
