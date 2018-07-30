@@ -18,10 +18,6 @@
                 "creationTimestamp": null,
                 "labels": {
                     "app": "jenkins"
-                },
-                "annotations": {
-                    "volume.beta.kubernetes.io/storage-class": "gluster-file",
-                    "volume.beta.kubernetes.io/storage-provisioner": "kubernetes.io/glusterfs"
                 }
             },
             "spec": {
@@ -30,7 +26,7 @@
                 ],
                 "resources": {
                     "requests": {
-                        "storage": "10Gi"
+                        "storage": "5Gi"
                     }
                 }
             },
@@ -198,11 +194,11 @@
                             "resources": {
                                 "limits": {
                                     "cpu": "3000m",
-                                    "memory": "4Gi"
+                                    "memory": "3Gi"
                                 },
                                 "requests": {
-                                    "cpu": "1000m",
-                                    "memory": "4Gi"
+                                    "cpu": "750m",
+                                    "memory": "1Gi"
                                 }
                             },
                             "volumeMounts": [
