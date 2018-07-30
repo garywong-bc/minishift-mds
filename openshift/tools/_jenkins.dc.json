@@ -18,10 +18,6 @@
                 "creationTimestamp": null,
                 "labels": {
                     "app": "jenkins"
-                },
-                "annotations": {
-                    "volume.beta.kubernetes.io/storage-class": "gluster-file",
-                    "volume.beta.kubernetes.io/storage-provisioner": "kubernetes.io/glusterfs"
                 }
             },
             "spec": {
@@ -30,7 +26,7 @@
                 ],
                 "resources": {
                     "requests": {
-                        "storage": "10Gi"
+                        "storage": "5Gi"
                     }
                 }
             },
@@ -63,7 +59,7 @@
                 "creationTimestamp": null
             },
             "data": {
-                "config": "{\n    \"init.url\": [\n        \"https://raw.githubusercontent.com/BCDevOps/openshift-components/jenkins-installer-helper/cicd/jenkins/scripts/init-00.groovy\",\n        \"https://raw.githubusercontent.com/BCDevOps/openshift-components/jenkins-installer-helper/cicd/jenkins/scripts/init-01.groovy\"\n    ],\n    \"projects\":{\n        \"mds\":{\n            \"template\":{\n                \"source\": \"https://raw.githubusercontent.com/BCDevOps/openshift-components/master/cicd/jenkins/templates/workflow-multibranch.template.xml\",\n                \"parameters\":[\n                    {\"name\":\"REPO_OWNER\", \"value\":\"garywong-bc\"},\n                    {\"name\":\"REPO_NAME\", \"value\":\"minishift-mds\"}\n                ]\n            }\n        }\n    },\n    \"github-account.secret.name\": \"github-credentials\",\n    \"globalLibraries\":[\n        {\n            \"name\": \"bcdevops-jenkins-shared-library\",\n            \"scm\": {\n                \"url\": \"https://github.com/BCDevOps/jenkins-pipeline-shared-lib.git\"\n            },\n            \"defaultVersion\": \"cvarjao/develop\",\n            \"implicit\": true,\n            \"allowVersionOverride\": true,\n            \"includeInChangesets\": true\n        }\n    ]\n}"
+                "config": "{\n    \"init.url\": [\n        \"https://raw.githubusercontent.com/BCDevOps/openshift-components/jenkins-installer-helper/cicd/jenkins/scripts/init-00.groovy\",\n        \"https://raw.githubusercontent.com/BCDevOps/openshift-components/jenkins-installer-helper/cicd/jenkins/scripts/init-01.groovy\"\n    ],\n    \"projects\":{\n        \"minishift-mds\":{\n            \"template\":{\n                \"source\": \"https://raw.githubusercontent.com/BCDevOps/openshift-components/master/cicd/jenkins/templates/workflow-multibranch.template.xml\",\n                \"parameters\":[\n                    {\"name\":\"REPO_OWNER\", \"value\":\"garywong-bc\"},\n                    {\"name\":\"REPO_NAME\", \"value\":\"minishift-mds\"}\n                ]\n            }\n        }\n    },\n    \"github-account.secret.name\": \"github-credentials\",\n    \"globalLibraries\":[\n        {\n            \"name\": \"bcdevops-jenkins-shared-library\",\n            \"scm\": {\n                \"url\": \"https://github.com/BCDevOps/jenkins-pipeline-shared-lib.git\"\n            },\n            \"defaultVersion\": \"cvarjao/develop\",\n            \"implicit\": true,\n            \"allowVersionOverride\": true,\n            \"includeInChangesets\": true\n        }\n    ]\n}"
             }
           },
         {
@@ -198,11 +194,11 @@
                             "resources": {
                                 "limits": {
                                     "cpu": "3000m",
-                                    "memory": "4Gi"
+                                    "memory": "3Gi"
                                 },
                                 "requests": {
-                                    "cpu": "1000m",
-                                    "memory": "4Gi"
+                                    "cpu": "750m",
+                                    "memory": "1Gi"
                                 }
                             },
                             "volumeMounts": [

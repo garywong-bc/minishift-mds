@@ -3,19 +3,19 @@ app {
     version = 'snapshot'
     namespaces { //can't call environments :(
         'build'{
-            namespace = 'empr-mds-tools'
+            namespace = 'minishift-mds-tools'
             disposable = true
         }
         'dev' {
-            namespace = 'empr-mds-dev'
+            namespace = 'minishift-mds-dev'
             disposable = true
         }
         'test' {
-            namespace = 'empr-mds-test'
+            namespace = 'minishift-mds-test'
             disposable = false
         }
         'prod' {
-            namespace = 'empr-mds-prod'
+            namespace = 'minishift-mds-prod'
             disposable = false
         }
     }
@@ -43,7 +43,7 @@ app {
         version = "${app.build.env.name}-${app.build.env.id}"
 
         suffix = "-${app.git.changeId}"
-        namespace = 'empr-mds-tools'
+        namespace = 'minishift-mds-tools'
         timeoutInSeconds = 60*20 // 20 minutes
         templates = [
                 [
@@ -127,10 +127,10 @@ app {
 
 //Default Values (Should it default to DEV or PROD???)
 vars {
-    DB_PVC_SIZE = '1Gi'
+    DB_PVC_SIZE = '512Mi'
     modules {
         'mds-backend' {
-            HOST = "mds-backend-${vars.git.changeId}-${vars.deployment.namespace}.pathfinder.gov.bc.ca"
+            HOST = "mds-backend-${vars.git.changeId}-${vars.deployment.namespace}.192.168.64.5.nip.io"
         }
     }
 }
@@ -147,14 +147,14 @@ environments {
                     name = "dev"
                 }
                 key = 'dev'
-                namespace = 'empr-mds-dev'
+                namespace = 'minishift-mds-dev'
             }
             modules {
                 'mds-backend' {
-                    HOST = "mds-backend-${vars.git.changeId}-${vars.deployment.namespace}.pathfinder.gov.bc.ca"
+                    HOST = "mds-backend-${vars.git.changeId}-${vars.deployment.namespace}.192.168.64.5.nip.io"
                 }
                 'mds-frontend' {
-                    HOST = "mds-frontend-${vars.git.changeId}-${vars.deployment.namespace}.pathfinder.gov.bc.ca"
+                    HOST = "mds-frontend-${vars.git.changeId}-${vars.deployment.namespace}.192.168.64.5.nip.io"
                 }
             }
         }
@@ -163,7 +163,7 @@ environments {
         vars {
             deployment {
                 key = 'test'
-                namespace = 'empr-mds-test'
+                namespace = 'minishift-mds-test'
             }
         }
     }
@@ -171,7 +171,7 @@ environments {
         vars {
             deployment {
                 key = 'prod'
-                namespace = 'empr-mds-prod'
+                namespace = 'minishift-mds-prod'
             }
         }
     }

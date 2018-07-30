@@ -3,7 +3,7 @@ app {
     name = 'sonarqube'
     namespaces { //can't call environments :(
         'build'{
-            namespace = 'empr-mds-tools'
+            namespace = 'minishift-mds-tools'
             disposable = true
         }
         'dev' {
@@ -70,7 +70,7 @@ app {
                         'IMAGE_STREAM_NAME':"${app.build.name}-postgresql",
                         'IMAGE_STREAM_VERSION':"${app.build.version}",
                         'POSTGRESQL_DATABASE':app.name,
-                        'VOLUME_CAPACITY':"5Gi"
+                        'VOLUME_CAPACITY':"2Gi"
                     ]
                 ],
                 [
